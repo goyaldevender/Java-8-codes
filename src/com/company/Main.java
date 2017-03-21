@@ -53,7 +53,7 @@ public class Main {
             Objective : To demonstrate the use of reduce function
          */
         System.out.println("\n\nUsing the reduce() to find the sum of elements");
-        System.out.println(al.stream().filter(i -> i >= 0).reduce(0, (sum, i) -> sum + i));
+        System.out.print(al.stream().filter(i -> i >= 0).reduce(0, (sum, i) -> sum + i));
 
         /*
             Objective   : To demonstrate the lazy evaluation
@@ -82,10 +82,11 @@ public class Main {
 
         /*
             Objective : To demonstrate the findfirst function in Java 8
+
+            Tip       : The word optional appear if we don't provide the optional value
          */
         System.out.println("\n\nDemonstrating the find first function in java");
-        al.stream().findFirst();
-
+        System.out.print(al.stream().filter(i -> i > 0).findFirst().orElse(-1));
         /*
             Objective : To Demonstrate the construction of factorial function using Java 8
          */
@@ -96,17 +97,17 @@ public class Main {
             Objective : To Demonstrate the construction of isPrime function using Java 8
          */
         System.out.println("\n\nDemonstrating the isPrime function using Java 8");
-        System.out.println("isPrime(5) = " + isPrime(5));
+        System.out.print("isPrime(5) = " + isPrime(5));
 
         /*
             Objective : To demonstrate the use of collector class in Java 8
          */
 
-        System.out.println("Converting the stream to list using collect( Collectors.toList() )");
+        System.out.println("\n\nConverting the stream to list using collect( Collectors.toList() )");
 
         List<Integer> positiveList;
         positiveList = al.stream().filter(i -> i > 0).collect(Collectors.toList());
-        System.out.println(positiveList);
+        System.out.print(positiveList);
 
         /*
             Objective : To demonstrate the use of collect(Collectors.joining()) to join the elements of list
@@ -114,7 +115,7 @@ public class Main {
 
         System.out.println("\n\nTo demonstrate the use of collect(Collectors.joining())");
         String str1 = al.stream().filter(i -> i > 0).map(i -> (i).toString()).collect(Collectors.joining());
-        System.out.println(str1);
+        System.out.print(str1);
 
         /*
             Objective : To demonstrate the use of collect(Collector.joining(",")) to join the elements of the list
@@ -123,7 +124,7 @@ public class Main {
 
         System.out.println("\n\nTo demonstrate the use of collect(Collectors.joining(\"delim\")");
         String str2 = al.stream().filter(i -> i > 0).map(i -> (i).toString()).collect(Collectors.joining(","));
-        System.out.println(str2);
+        System.out.print(str2);
 
     }
 
